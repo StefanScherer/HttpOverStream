@@ -14,6 +14,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                bat 'set BUILD_'
                 bat 'docker run --rm -v %cd%:C:/work -w C:/work/src mcr.microsoft.com/dotnet/framework/sdk:4.8-20190910-windowsservercore-ltsc2019 powershell -File build.ps1 -Target Build'
             }
         }
